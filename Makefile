@@ -1,4 +1,11 @@
 
+bins=sum
+
+all: $(foreach bin,$(bins),$(bin).native)
+
+%.native : %.ml
+	corebuild $@
+
 init:
 	opam install batteries core utop
 
